@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>queryResule</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="/static/css/reset.css" rel="stylesheet">
+    <!-- Bootstrap3.3.5 CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/queryResult.css" rel="stylesheet">
+  </head>
+  <body>
+  <div class="container">
+      <div class="queryResule">
+          <h2>查询结果</h2>
+          
+          <div class="top">
+              
+                  <p>
+                      <span>姓名：</span>
+                      <span>{{.Edu.Name}}</span>
+                  </p>
+
+                  <p>
+                      <span>余额：</span>
+                      <span>{{.Edu.Balance}}</span>
+                  </p>
+
+                  <p>
+                      <span>ID：</span>
+                      <span>{{.Edu.EntityID}}</span>
+                  </p>
+
+          </div>
+          <p>
+              <a href="/index">返回首页</a>
+          </p>
+      </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Transfer</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="./css/reset.css" rel="stylesheet">
+    <!-- Bootstrap3.3.5 CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/login.css" rel="stylesheet">
+    <link href="/static/css/queryResult.css" rel="stylesheet">
+    <link href="/static/css/addEdu.css" rel="stylesheet">
+
+    <script>
+        function myFunction(){
+            alert("你好，我是一个警告框！");
+        }
+    </script>
+    
+</head>
+<body>
+<div class="container">
+    <div class="queryResule">
+        <h2>转帐交易</h2>
+        <div class="back">
+            <a href="/index">返回首页</a>
+        </div>
+        <form action="/transfer" method="post" name="transferForm">
+          <div class="top">
+                  <p>
+                      <span>转出者：</span>
+                      <span>
+                        <input type="text" name="from" class="input_text" tabindex="1" onfocus="if(this.placeholder=='转出者'){this.placeholder='';}this.className ='input_text input_text_focus'" onblur="if(this.value==''){this.placeholder='转出者';this.className ='input_text'}" accesskey="n" type="text" placeholder="转出者" size="25" autocomplete="off">
+                      </span>
+                  </p>
+                  <p>
+                    <span>转入者：</span>
+                    <span>
+                      <input type="text" name="to" class="input_text" tabindex="1" onfocus="if(this.placeholder=='转入者'){this.placeholder='';}this.className ='input_text input_text_focus'" onblur="if(this.value==''){this.placeholder='转入者';this.className ='input_text'}" accesskey="n" type="text" placeholder="转入者" size="25" autocomplete="off">
+                    </span>
+                </p>
+                  <p>
+                      <span>金额：</span>
+                      <span>
+                        <input type="text" name="balance" class="input_text" tabindex="1" onfocus="if(this.placeholder=='金额'){this.placeholder='';}this.className ='input_text input_text_focus'" onblur="if(this.value==''){this.placeholder='金额';this.className ='input_text'}" accesskey="n" type="text" placeholder="金额" size="25" autocomplete="off">
+                      </span>
+                  </p>
+
+          </div>
+          <input type="hidden" name="photo" id="photo" value=""/>
+          <button type="button" name="button" class="btn">提交</button>
+        </form>
+    </div>
+    <!-- data-backdrop="false"去除遮罩层  -->
+    <div class="modal fade bd-example-modal-sm"  id="myModal" role="dialog" data-backdrop="false"  aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <p class="text-center mb-0" style="height:42px;line-height:42px;margin:0;">
+                    <i class="fa fa-check-circle text-success mr-1" aria-hidden="true"></i>
+                    请输入相关信息
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        // 上传图片
+        $('#file').unbind('change').bind('change',function() {
+            event.stopPropagation();
+            uploadFile('img');
+            return;
+        });
+        // 头像图片
+        var artImg;
+        function uploadFile(type) {
+            event.stopPropagation();
+            let formData = new FormData();
+            if( type == "img"){
+                formData.append('file', $('#file')[0].files[0]);
+            }
+            $.ajax({
+                url: '/upload',
+                type: 'POST',
+                cache: false,
+                data: formData,
+                processData: false,
+                dataType: "json",
+                contentType: false
+            }).done(function (res) {
+                if (res.error == "0") {
+                    if( type == "img"){
+                        $('.uploadImg img').attr('src',res.result.path);
+                        $('#photo').val(res.result.path)
+                        return artImg = res.result.path;
+                    }
+                } else {
+                    alert("上传失败！" + res.result.msg)
+                }
+            }).fail(function (res) { });
+        }
+
+        var inputs = $('input[type="text"]');
+        // 提交按钮
+        $('.btn').click(function() {
+            // 如果为空 报错提示
+            for (var i = 0; i < inputs.length; i++) {
+                if (!($(inputs[i]).val())) {
+                    $(inputs[i]).addClass('redColor');
+                    $('#myModal').modal('show');
+                    setTimeout(function(){
+                        $("#myModal").modal("hide");
+                    },2000);
+                    return;
+                }
+            }
+
+            // 成功后提交数据
+            // $(location).attr('href','index.html');
+            $("form[name='transferForm']").submit()
+        })
+    })
+</script>
+</html>

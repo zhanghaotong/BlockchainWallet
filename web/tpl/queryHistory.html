@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>queryResule</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap3.3.5 CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/queryResult.css" rel="stylesheet">
+  </head>
+<style>
+/*清除外边距*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, figure, /*结构元素*/
+dl, dt, dd, ul, ol, li, /*列表元素*/
+fieldset, lengend, button, input, textarea, /*表单元素*/
+th, td, /*表格元素*/
+pre /*文本格式元素*/ {
+    margin: 0;
+}
+
+
+/*清除内边距*/
+ul, ol, menu {
+    padding: 0;
+}
+
+
+/*重置列表元素*/
+ul, ol {
+    list-style: none;
+}
+
+
+/*将字体扶正*/
+address, cite, dfn, em, var {
+    font-style: normal;
+}
+
+
+/*清下划线*/
+a {
+    text-decoration: none;
+    color: black;
+}
+/*鼠标略过a标签，显示下划线*/
+a:hover {
+    /* text-decoration: underline; */
+}
+
+
+/*清浮动*/
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+</style>   
+  <body>
+  <div class="container">
+      <div class="queryResule">
+          <h2>查询结果</h2>
+          
+          <div class="top" id="1" title={{.Edu.History}} ></div>
+
+          <p>
+              <a href="/index">返回首页</a>
+          </p>
+      </div>
+  </div>
+
+  </body>
+<script>
+    var loveStr = "";
+    var loveArr = [];
+
+    var elText = document.getElementById("1");
+    var string = elText.title.replace("[","");
+    string = string.replace("]","");
+    var arr=string.split(";");
+    loveArr.push.apply(loveArr,arr);
+    /****forEach循环****/
+    loveArr.forEach(e => {
+        loveStr += `<div>${e}</div>`;
+    })
+    console.log(loveStr)
+    
+    //拼接完字符串数组后用innerHTML把它渲染到页面中
+    document.getElementById("1").innerHTML = loveStr;
+</script>
+</html>

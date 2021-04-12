@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>query2</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="/static/css/reset.css" rel="stylesheet">
+    <!-- Bootstrap3.3.5 CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/query.css">
+  </head>
+  <body>
+    <div class="container">
+      <h2>历史查询</h2>
+      <div id="query">
+            <div class="left">
+                    <div class="top" id="1" title={{.Edu.History}} ></div>
+                <a href="/index">返回首页</a>
+              
+            </div>
+      </div>
+      
+  </body>
+
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  <script>
+    var loveStr = "";
+    var loveArr = [];
+
+    var elText = document.getElementById("1");
+    var string = elText.title.replace("[","");
+    string = string.replace("]","");
+    var arr=string.split(";");
+    loveArr.push.apply(loveArr,arr);
+    /****forEach循环****/
+    loveArr.forEach(e => {
+        loveStr += `<div>${e}</div>`;
+    })
+    console.log(loveStr)
+    
+    //拼接完字符串数组后用innerHTML把它渲染到页面中
+    document.getElementById("1").innerHTML = loveStr;
+</script>
+
+</html>
