@@ -35,32 +35,27 @@
    $ cd $GOPATH/src/github.com/kongyixueyuan.com/BlockchainWallet
    ```
 
-5. 编译
+
+5. 启动服务
 
    ```shell
-   $ go build
+   $ make all
    ```
 
-6. 启动服务
-
-   ```shell
-   $ ./education
-   ```
-
-7. 浏览器访问
+6. 浏览器访问
 
    ```url
    http://localhost:9000
    ```
 
-8. 登录用户名及密码
+7. 登录用户名及密码
 
    ```
    用户名：admin
    密码：admin
    ```
 
-9. 停止服务
+8. 停止服务
 
    Ctrl + C 停止Web服务，然后使用如下命令清空：
 
@@ -69,5 +64,3 @@
    ```
 
    ​
-# Wallet
-# Wallet
