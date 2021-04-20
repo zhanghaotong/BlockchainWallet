@@ -67,7 +67,7 @@
    $ cd $GOPATH/src/github.com/kongyixueyuan.com/
    ```
 
-2. 下载项目,并修改fixtures的从属关系
+2. 下载项目,并修改fixtures的从属关系，username改为当前用户名
 
    ```shell
    $ git clone https://github.com/zhanghaotong/BlockchainWallet.git
