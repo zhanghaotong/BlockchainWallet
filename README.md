@@ -50,9 +50,7 @@
    使用 source 命令，使刚刚添加的配置信息生效：
    
    ```shell
-   $ export GOPATH=$HOME/go
-   $ export GOROOT=/usr/local/go
-   $ export PATH=$GOROOT/bin:$PATH
+   $ source /etc/profile
    ```
    
    通过 go version命令验证是否成功：
@@ -69,22 +67,28 @@
    $ cd $GOPATH/src/github.com/kongyixueyuan.com/
    ```
 
-2. 下载项目
-
-   ```go
-   $ git clone https://github.com/zhanghaotong/BlockchainWallet.git
-   ```
-
-3. 进入项目根目录
+2. 下载项目,并修改fixtures的从属关系
 
    ```shell
-   $ cd $GOPATH/src/github.com/kongyixueyuan.com/BlockchainWallet
+   $ git clone https://github.com/zhanghaotong/BlockchainWallet.git
+   $ mv BlockchainWallet education
+   $ cd education
+   $ sudo chown -R username:username ./fixtures
+   ```
+
+3. 进入fixtures目录并拉取镜像
+
+   ```shell
+   $ cd $GOPATH/src/github.com/kongyixueyuan.com/education/fixtures
+   $ chmod 777 ./pull_images.sh
+   $ ./pull_images.sh
    ```
 
 
 4. 启动服务
 
    ```shell
+   $ cd $GOPATH/src/github.com/kongyixueyuan.com/education/fixtures
    $ make all
    ```
 
