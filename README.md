@@ -24,7 +24,7 @@
    $ sudo usermod -aG docker username
    ```
    
-3. 安装Golang,需要版本1.10.x或更高。
+3. 安装Golang并配置环境,需要版本1.10.x或更高。
 
    ```shell
    $ wget https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz
