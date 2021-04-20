@@ -18,10 +18,10 @@
    $ sudo apt install docker-compose
    ```
 
-2. 将当前用户添加到 docker 组,添加成功后必须注销/退出并重新登录(退出终端重新连接即可)
+2. 将当前用户(username改为当前用户名)添加到 docker 组,添加成功后必须注销/退出并重新登录(退出终端重新连接即可)
 
    ```shell
-   $ sudo usermod -aG docker kevin
+   $ sudo usermod -aG docker username
    ```
    
 3. 安装Golang,需要版本1.10.x或更高。
