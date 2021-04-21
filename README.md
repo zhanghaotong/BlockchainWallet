@@ -1,6 +1,6 @@
 ### 环境依赖：
 
-- **Ubuntu 20.04**
+- **Ubuntu 16.04**
 - **git**
 - **docker 17.03.0-ce+**
 - **docker-compose 1.8**
