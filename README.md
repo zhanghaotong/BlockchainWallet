@@ -88,7 +88,7 @@
 4. 启动服务
 
    ```shell
-   $ cd $GOPATH/src/github.com/kongyixueyuan.com/education/fixtures
+   $ cd $GOPATH/src/github.com/kongyixueyuan.com/education
    $ make all
    ```
 
