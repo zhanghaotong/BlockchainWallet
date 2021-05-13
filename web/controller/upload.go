@@ -5,18 +5,17 @@
 package controller
 
 import (
-	"fmt"
-	"net/http"
-	"io/ioutil"
 	"crypto/rand"
-	"path/filepath"
-	"os"
-	"mime"
+	"fmt"
+	"io/ioutil"
 	"log"
+	"mime"
+	"net/http"
+	"os"
+	"path/filepath"
 )
 
-
-func (app *Application) UploadFile(w http.ResponseWriter, r *http.Request)  {
+func (app *Application) UploadFile(w http.ResponseWriter, r *http.Request) {
 
 	start := "{"
 	content := ""
@@ -50,11 +49,11 @@ func (app *Application) UploadFile(w http.ResponseWriter, r *http.Request)  {
 		return
 	}
 
-	fileName := randToken(12)	// 指定文件名
-	fileEndings, err := mime.ExtensionsByType(filetype)	// 获取文件扩展名
+	fileName := randToken(12)                           // 指定文件名
+	fileEndings, err := mime.ExtensionsByType(filetype) // 获取文件扩展名
 	//log.Println("fileEndings = " + fileEndings[0])
 	// 指定文件存储路径
-	newPath := filepath.Join("web", "static", "photo", fileName + fileEndings[0])
+	newPath := filepath.Join("web", "static", "photo", fileName+fileEndings[0])
 	//fmt.Printf("FileType: %s, File: %s\n", filetype, newPath)
 
 	newFile, err := os.Create(newPath)
@@ -84,4 +83,3 @@ func randToken(len int) string {
 	rand.Read(b)
 	return fmt.Sprintf("%x", b)
 }
-

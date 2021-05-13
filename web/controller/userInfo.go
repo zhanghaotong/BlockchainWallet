@@ -11,19 +11,18 @@ type Application struct {
 }
 
 type User struct {
-	LoginName	string
-	Password	string
-	IsAdmin	string
+	LoginName string
+	Password  string
+	IsAdmin   string
 }
-
 
 var users []User
 
 func init() {
 
-	admin := User{LoginName:"admin", Password:"admin", IsAdmin:"T"}
-	bob := User{LoginName:"101", Password:"123456", IsAdmin:"F"}
-	jack := User{LoginName:"102", Password:"123456", IsAdmin:"F"}
+	admin := User{LoginName: "admin", Password: "admin", IsAdmin: "T"}
+	bob := User{LoginName: "101", Password: "123456", IsAdmin: "F"}
+	jack := User{LoginName: "102", Password: "123456", IsAdmin: "F"}
 
 	users = append(users, admin)
 	users = append(users, bob)

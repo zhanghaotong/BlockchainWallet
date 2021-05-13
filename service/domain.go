@@ -1,28 +1,29 @@
 package service
 
 import (
-	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 	"fmt"
 	"time"
+
+	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 	"github.com/hyperledger/fabric-sdk-go/pkg/common/providers/fab"
 )
 
 type Account struct {
-	ObjectType	string	`json:"docType"`
-	Name	string	`json:"Name"`		// 姓名
-	Balance int64  `json:"Balance"`
-	EntityID	string	`json:"EntityID"`		// EntityID
-	History []string `json:"History"`
+	ObjectType string   `json:"docType"`
+	Name       string   `json:"Name"` // 姓名
+	Balance    int64    `json:"Balance"`
+	EntityID   string   `json:"EntityID"` // EntityID
+	History    []string `json:"History"`
 }
 
 type HistoryItem struct {
-	TxId	string
-	Account	Account
+	TxId    string
+	Account Account
 }
 
 type ServiceSetup struct {
-	ChaincodeID	string
-	Client	*channel.Client
+	ChaincodeID string
+	Client      *channel.Client
 }
 
 func regitserEvent(client *channel.Client, chaincodeID, eventID string) (fab.Registration, <-chan *fab.CCEvent) {

@@ -5,16 +5,16 @@
 package web
 
 import (
-	"net/http"
 	"fmt"
+	"net/http"
+
 	"github.com/kongyixueyuan.com/education/web/controller"
 )
 
-
 // 启动Web服务并指定路由信息
-func WebStart(app controller.Application)  {
+func WebStart(app controller.Application) {
 
-	fs:= http.FileServer(http.Dir("web/static"))
+	fs := http.FileServer(http.Dir("web/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	// 指定路由信息(匹配请求)
@@ -26,18 +26,17 @@ func WebStart(app controller.Application)  {
 	http.HandleFunc("/indexForUsers", app.IndexForUsers)
 	http.HandleFunc("/help", app.Help)
 
-	http.HandleFunc("/addEduInfo", app.AddAccShow)	// 显示添加信息页面
-	http.HandleFunc("/addEdu", app.AddAcc)	// 提交信息请求
+	http.HandleFunc("/addEduInfo", app.AddAccShow) // 显示添加信息页面
+	http.HandleFunc("/addEdu", app.AddAcc)         // 提交信息请求
 
-	http.HandleFunc("/queryPage2", app.QueryPage2)	// 转至根据EntityID查询信息页面
-	http.HandleFunc("/query2", app.FindByID)	// 根据EntityID查询信息
+	http.HandleFunc("/queryPage2", app.QueryPage2) // 转至根据EntityID查询信息页面
+	http.HandleFunc("/query2", app.FindByID)       // 根据EntityID查询信息
 
+	http.HandleFunc("/modifyPage", app.ModifyShow) // 修改信息页面
+	http.HandleFunc("/modify", app.Modify)         //  修改信息
 
-	http.HandleFunc("/modifyPage", app.ModifyShow)	// 修改信息页面
-	http.HandleFunc("/modify", app.Modify)	//  修改信息
-
-	http.HandleFunc("/transferPage", app.TransferShow)	// 修改信息页面
-	http.HandleFunc("/transfer", app.Transfer)	//  修改信息
+	http.HandleFunc("/transferPage", app.TransferShow) // 修改信息页面
+	http.HandleFunc("/transfer", app.Transfer)         //  修改信息
 
 	http.HandleFunc("/history", app.FindHistoryByID)
 
@@ -48,6 +47,3 @@ func WebStart(app controller.Application)  {
 	}
 
 }
-
-
-

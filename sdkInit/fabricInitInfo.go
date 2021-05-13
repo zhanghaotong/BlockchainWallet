@@ -1,6 +1,6 @@
 /**
   author: kevin
- */
+*/
 
 package sdkInit
 
@@ -9,15 +9,15 @@ import (
 )
 
 type InitInfo struct {
-	ChannelID     string
-	ChannelConfig string
-	OrgAdmin      string
-	OrgName       string
-	OrdererOrgName	string
-	OrgResMgmt *resmgmt.Client
+	ChannelID      string
+	ChannelConfig  string
+	OrgAdmin       string
+	OrgName        string
+	OrdererOrgName string
+	OrgResMgmt     *resmgmt.Client
 
-	ChaincodeID	string
-	ChaincodeGoPath	string
-	ChaincodePath	string
-	UserName	string
+	ChaincodeID     string
+	ChaincodeGoPath string
+	ChaincodePath   string
+	UserName        string
 }

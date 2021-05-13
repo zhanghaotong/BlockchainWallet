@@ -5,13 +5,13 @@
 package controller
 
 import (
+	"fmt"
+	"html/template"
 	"net/http"
 	"path/filepath"
-	"html/template"
-	"fmt"
 )
 
-func ShowView(w http.ResponseWriter, r *http.Request, templateName string, data interface{})  {
+func ShowView(w http.ResponseWriter, r *http.Request, templateName string, data interface{}) {
 
 	// 指定视图所在路径
 	pagePath := filepath.Join("web", "tpl", templateName)

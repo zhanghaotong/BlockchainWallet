@@ -1,10 +1,11 @@
 package service
 
 import (
-	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 	"encoding/json"
 	"fmt"
 	"strconv"
+
+	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 )
 
 func (t *ServiceSetup) SaveAcc(acc Account) (string, error) {
@@ -32,8 +33,7 @@ func (t *ServiceSetup) SaveAcc(acc Account) (string, error) {
 	return string(respone.TransactionID), nil
 }
 
-
-func (t *ServiceSetup) FindAccInfoByEntityID(entityID string) ([]byte, error){
+func (t *ServiceSetup) FindAccInfoByEntityID(entityID string) ([]byte, error) {
 
 	req := channel.Request{ChaincodeID: t.ChaincodeID, Fcn: "queryAccInfoByEntityID", Args: [][]byte{[]byte(entityID)}}
 	respone, err := t.Client.Query(req)
@@ -44,7 +44,7 @@ func (t *ServiceSetup) FindAccInfoByEntityID(entityID string) ([]byte, error){
 	return respone.Payload, nil
 }
 
-func (t *ServiceSetup) FindAccByCertNoAndName(certNo, name string) ([]byte, error){
+func (t *ServiceSetup) FindAccByCertNoAndName(certNo, name string) ([]byte, error) {
 
 	req := channel.Request{ChaincodeID: t.ChaincodeID, Fcn: "queryAccByCertNoAndName", Args: [][]byte{[]byte(certNo), []byte(name)}}
 	respone, err := t.Client.Query(req)
@@ -101,25 +101,23 @@ func (t *ServiceSetup) DelAcc(entityID string) (string, error) {
 	return string(respone.TransactionID), nil
 }
 
-
 func (t *ServiceSetup) TransferAcc(id1 string, id2 string, amount int64) (string, error) {
 
-	if amount <0 {
+	if amount < 0 {
 		return "", fmt.Errorf("不能转账为负数")
 	}
-	
+
 	eventID := "eventTransferAcc"
 	reg, notifier := regitserEvent(t.Client, t.ChaincodeID, eventID)
 	defer t.Client.UnregisterChaincodeEvent(reg)
-	
+
 	var negativeAmount = amount * (-1)
 
-
 	acc1 := Account{
-		Name: "",
-		Balance: negativeAmount,
+		Name:     "",
+		Balance:  negativeAmount,
 		EntityID: id1,
-		History: []string{"To " + id2 + " Amount: " + strconv.FormatInt(amount,10) + ";"},
+		History:  []string{"To " + id2 + " Amount: " + strconv.FormatInt(amount, 10) + ";"},
 	}
 
 	// 将acc1对象序列化成为字节数组
@@ -140,12 +138,12 @@ func (t *ServiceSetup) TransferAcc(id1 string, id2 string, amount int64) (string
 	}
 
 	acc2 := Account{
-		Name: "",
-		Balance: amount,
+		Name:     "",
+		Balance:  amount,
 		EntityID: id2,
-		History: []string{"From " + id1 + " Amount: " + strconv.FormatInt(amount,10) + ";"},
+		History:  []string{"From " + id1 + " Amount: " + strconv.FormatInt(amount, 10) + ";"},
 	}
-	
+
 	// 将acc2对象序列化成为字节数组
 	b, err = json.Marshal(acc2)
 	if err != nil {
