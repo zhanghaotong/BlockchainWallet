@@ -7,7 +7,6 @@ type Account struct {
 	EntityID   string `json:"EntityID"` // EntityID
 
 	History []string `json:"History"`
-
 	Historys []HistoryItem // 当前acc的历史记录
 }
 
