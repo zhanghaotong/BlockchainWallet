@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"math"
-	"regexp"
 	"reflect"
+	"regexp"
 )
 
 const (
@@ -66,16 +66,16 @@ func (this *evaluationStage) setToNonStage(other evaluationStage) {
 func (this *evaluationStage) isShortCircuitable() bool {
 
 	switch this.symbol {
-		case AND:
-			fallthrough
-		case OR:
-			fallthrough
-		case TERNARY_TRUE: 
-			fallthrough
-		case TERNARY_FALSE:
-			fallthrough
-		case COALESCE:
-			return true
+	case AND:
+		fallthrough
+	case OR:
+		fallthrough
+	case TERNARY_TRUE:
+		fallthrough
+	case TERNARY_FALSE:
+		fallthrough
+	case COALESCE:
+		return true
 	}
 
 	return false

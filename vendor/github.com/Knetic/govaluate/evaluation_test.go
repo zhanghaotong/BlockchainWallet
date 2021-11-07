@@ -1,11 +1,11 @@
 package govaluate
 
 import (
+	"errors"
 	"fmt"
-	"time"
 	"regexp"
 	"testing"
-	"errors"
+	"time"
 )
 
 /*
@@ -507,44 +507,44 @@ func TestNoParameterEvaluation(test *testing.T) {
 		},
 		EvaluationTest{
 
-			Name:  "Logical operator reordering (#30)",
-			Input: "(true && true) || (true && false)",
+			Name:     "Logical operator reordering (#30)",
+			Input:    "(true && true) || (true && false)",
 			Expected: true,
 		},
 		EvaluationTest{
 
-			Name:  "Logical operator reordering without parens (#30)",
-			Input: "true && true || true && false",
+			Name:     "Logical operator reordering without parens (#30)",
+			Input:    "true && true || true && false",
 			Expected: true,
 		},
 		EvaluationTest{
 
-			Name:  "Logical operator reordering with multiple OR (#30)",
-			Input: "false || true && true || false",
+			Name:     "Logical operator reordering with multiple OR (#30)",
+			Input:    "false || true && true || false",
 			Expected: true,
 		},
 		EvaluationTest{
 
-			Name:  "Left-side multiple consecutive (should be reordered) operators",
-			Input: "(10 * 10 * 10) > 10",
+			Name:     "Left-side multiple consecutive (should be reordered) operators",
+			Input:    "(10 * 10 * 10) > 10",
 			Expected: true,
 		},
 		EvaluationTest{
 
-			Name:  "Three-part non-paren logical op reordering (#44)",
-			Input: "false && true || true",
+			Name:     "Three-part non-paren logical op reordering (#44)",
+			Input:    "false && true || true",
 			Expected: true,
 		},
 		EvaluationTest{
 
-			Name:  "Three-part non-paren logical op reordering (#44), second one",
-			Input: "true || false && true",
+			Name:     "Three-part non-paren logical op reordering (#44), second one",
+			Input:    "true || false && true",
 			Expected: true,
 		},
 		EvaluationTest{
 
-			Name:  "Logical operator reordering without parens (#45)",
-			Input: "true && true || false && false",
+			Name:     "Logical operator reordering without parens (#45)",
+			Input:    "true && true || false && false",
 			Expected: true,
 		},
 		EvaluationTest{
@@ -1179,24 +1179,24 @@ func TestParameterizedEvaluation(test *testing.T) {
 		},
 		EvaluationTest{
 
-			Name: "Incomparable array equality comparison",
+			Name:  "Incomparable array equality comparison",
 			Input: "arr == arr",
 			Parameters: []EvaluationParameter{
 				EvaluationParameter{
-					Name: "arr",
-					Value: []int {0, 0, 0},
+					Name:  "arr",
+					Value: []int{0, 0, 0},
 				},
 			},
 			Expected: true,
 		},
 		EvaluationTest{
 
-			Name: "Incomparable array not-equality comparison",
+			Name:  "Incomparable array not-equality comparison",
 			Input: "arr != arr",
 			Parameters: []EvaluationParameter{
 				EvaluationParameter{
-					Name: "arr",
-					Value: []int {0, 0, 0},
+					Name:  "arr",
+					Value: []int{0, 0, 0},
 				},
 			},
 			Expected: false,
@@ -1300,7 +1300,7 @@ func TestStructFunctions(test *testing.T) {
 	y2k, _ := time.Parse(parseFormat, "2000")
 	y2k1, _ := time.Parse(parseFormat, "2001")
 
-	functions := map[string]ExpressionFunction {
+	functions := map[string]ExpressionFunction{
 		"func1": func(args ...interface{}) (interface{}, error) {
 			return float64(y2k.Year()), nil
 		},
