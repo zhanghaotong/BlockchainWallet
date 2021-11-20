@@ -1,7 +1,3 @@
-/**
-  author: kevin
-*/
-
 package sdkInit
 
 import (
