@@ -579,9 +579,9 @@ zHTFwjPjHT8h6dU7/hMdkUg=
 //               DNS:*.googleadapis.com, DNS:*.googleapis.cn, DNS:*.googlecommerce.com, DNS:*.googlevideo.com,
 //               DNS:*.gstatic.cn, DNS:*.gstatic.com, DNS:*.gvt1.com, DNS:*.gvt2.com, DNS:*.metric.gstatic.com,
 //               DNS:*.urchin.com, DNS:*.url.google.com, DNS:*.youtube-nocookie.com, DNS:*.youtube.com,
-//               DNS:*.youtubeeducation.com, DNS:*.ytimg.com, DNS:android.clients.google.com, DNS:android.com, DNS:g.co,
+//               DNS:*.youtubewallet.com, DNS:*.ytimg.com, DNS:android.clients.google.com, DNS:android.com, DNS:g.co,
 //               DNS:goo.gl, DNS:google-analytics.com, DNS:google.com, DNS:googlecommerce.com, DNS:urchin.com,
-//               DNS:youtu.be, DNS:youtube.com, DNS:youtubeeducation.com
+//               DNS:youtu.be, DNS:youtube.com, DNS:youtubewallet.com
 //           X509v3 Key Usage:
 //               Digital Signature
 //           Authority Information Access:

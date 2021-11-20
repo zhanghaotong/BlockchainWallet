@@ -1,4 +1,4 @@
-module github.com/kongyixueyuan.com/education
+module github.com/blockchain.com/wallet
 
 go 1.10
 

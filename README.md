@@ -1,3 +1,4 @@
+作者： 张皓通 学号： 20210720144
 ### 环境依赖：
 
 - **Ubuntu 16.04/18.04**
@@ -63,23 +64,23 @@
 1. 新建目录
 
    ```shell
-   $ mkdir -p $GOPATH/src/github.com/kongyixueyuan.com/
-   $ cd $GOPATH/src/github.com/kongyixueyuan.com/
+   $ mkdir -p $GOPATH/src/github.com/blockchain.com/
+   $ cd $GOPATH/src/github.com/blockchain.com/
    ```
 
 2. 下载项目,并修改fixtures的从属关系，username改为当前用户名
 
    ```shell
    $ git clone https://github.com/zhanghaotong/BlockchainWallet.git
-   $ mv BlockchainWallet education
-   $ cd education
+   $ mv BlockchainWallet wallet
+   $ cd wallet
    $ sudo chown -R username:username ./fixtures
    ```
 
 3. 进入fixtures目录并拉取镜像
 
    ```shell
-   $ cd $GOPATH/src/github.com/kongyixueyuan.com/education/fixtures
+   $ cd $GOPATH/src/github.com/blockchain.com/wallet/fixtures
    $ chmod 777 ./pull_images.sh
    $ ./pull_images.sh
    ```
@@ -88,7 +89,7 @@
 4. 启动服务
 
    ```shell
-   $ cd $GOPATH/src/github.com/kongyixueyuan.com/education
+   $ cd $GOPATH/src/github.com/blockchain.com/wallet
    $ make all
    ```
 

@@ -9,10 +9,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kongyixueyuan.com/education/sdkInit"
-	"github.com/kongyixueyuan.com/education/service"
-	"github.com/kongyixueyuan.com/education/web"
-	"github.com/kongyixueyuan.com/education/web/controller"
+	"github.com/blockchain.com/wallet/sdkInit"
+	"github.com/blockchain.com/wallet/service"
+	"github.com/blockchain.com/wallet/web"
+	"github.com/blockchain.com/wallet/web/controller"
 )
 
 const (
@@ -25,16 +25,16 @@ func main() {
 
 	initInfo := &sdkInit.InitInfo{
 
-		ChannelID:     "kevinkongyixueyuan",
-		ChannelConfig: os.Getenv("GOPATH") + "/src/github.com/kongyixueyuan.com/education/fixtures/artifacts/channel.tx",
+		ChannelID:     "milesblockchain",
+		ChannelConfig: os.Getenv("GOPATH") + "/src/github.com/blockchain.com/wallet/fixtures/artifacts/channel.tx",
 
 		OrgAdmin:       "Admin",
 		OrgName:        "Org1",
-		OrdererOrgName: "orderer.kevin.kongyixueyuan.com",
+		OrdererOrgName: "orderer.miles.blockchain.com",
 
 		ChaincodeID:     EduCC,
 		ChaincodeGoPath: os.Getenv("GOPATH"),
-		ChaincodePath:   "github.com/kongyixueyuan.com/education/chaincode/",
+		ChaincodePath:   "github.com/blockchain.com/wallet/chaincode/",
 		UserName:        "User1",
 	}
 

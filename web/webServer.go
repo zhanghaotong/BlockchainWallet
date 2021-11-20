@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/kongyixueyuan.com/education/web/controller"
+	"github.com/blockchain.com/wallet/web/controller"
 )
 
 // 启动Web服务并指定路由信息

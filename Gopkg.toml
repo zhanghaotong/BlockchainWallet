@@ -1,4 +1,4 @@
-ignored = ["github.com/kongyixueyuan.com/education/chaincode"]
+ignored = ["github.com/blockchain.com/wallet/chaincode"]
 
 [[constraint]]
   # Release v1.0.0-alpha4

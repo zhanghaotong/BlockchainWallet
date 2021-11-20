@@ -79,7 +79,7 @@ const text = "9guacuiababia-goracleaningroks-theatreebinagisoccertificationatu" 
 	"araconferenceconstructionconsuladoharuovatrani-andria-barletta-t" +
 	"rani-andriaconsultanthropologyconsultingrossetouchihayaakasakawa" +
 	"haracontactraniandriabarlettatraniandriacontagematsubaracontempo" +
-	"raryarteducationalchikugojomedio-campidano-mediocampidanomedioco" +
+	"raryartwalletalchikugojomedio-campidano-mediocampidanomedioco" +
 	"ntractorskenconventureshinodearthdfcbankashiwazakiyosemitecookin" +
 	"gchannelsdvrdnsdojoetsuwanouchikujogaszkolahppiacenzagancoolucer" +
 	"necooperativano-frankivskoleikangercopenhagencyclopedichirurgien" +

@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/kongyixueyuan.com/education/service"
+	"github.com/blockchain.com/wallet/service"
 )
 
 var cuser User

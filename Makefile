@@ -24,14 +24,14 @@ env-down:
 ##### RUN
 run:
 	@echo "Start app ..."
-	@./education
+	@./wallet
 
 ##### CLEAN
 clean: env-down
 	@echo "Clean up ..."
-	@rm -rf /tmp/kongyixueyuan-* kongyixueyuan
-	@docker rm -f -v `docker ps -a --no-trunc | grep "kongyixueyuan" | cut -d ' ' -f 1` 2>/dev/null || true
-	@docker rmi `docker images --no-trunc | grep "kongyixueyuan" | cut -d ' ' -f 1` 2>/dev/null || true
+	@rm -rf /tmp/blockchain-* blockchain
+	@docker rm -f -v `docker ps -a --no-trunc | grep "blockchain" | cut -d ' ' -f 1` 2>/dev/null || true
+	@docker rmi `docker images --no-trunc | grep "blockchain" | cut -d ' ' -f 1` 2>/dev/null || true
 	@echo "Clean up done"
 
 ##### START
@@ -43,4 +43,4 @@ start:
 	@cd fixtures && docker-compose up --force-recreate -d
 	@echo "Environment up"
 	@echo "Start app ..."
-	@./education
+	@./wallet
