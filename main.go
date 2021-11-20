@@ -183,5 +183,4 @@ func main() {
 		Setup: &serviceSetup,
 	}
 	web.WebStart(app)
-
 }

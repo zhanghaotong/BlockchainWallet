@@ -1,6 +1,6 @@
 module github.com/kongyixueyuan.com/education
 
-go 1.13
+go 1.10
 
 require (
 	github.com/fsouza/go-dockerclient v1.7.4 // indirect
